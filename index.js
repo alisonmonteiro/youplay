@@ -19,7 +19,7 @@ function autoplay() {
       const id = item.id;
       const videoId = item.getAttribute('data-video-id');
 
-      this.createPlayer({ id, videoId })
+      createPlayer({ id, videoId })
     })
   }
 
@@ -35,6 +35,7 @@ function autoplay() {
   return { applyPlayer, createScriptElement }
 }
 
+// Required by youtube API
 function onYouTubePlayerAPIReady() {
   autoplay().applyPlayer();
 }
