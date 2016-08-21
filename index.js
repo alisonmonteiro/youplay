@@ -4,7 +4,9 @@ function autoplay() {
       videoId: info.videoId,
       events: {
         onReady: () => {
-          player.playVideo();
+          setTimeout(() => {
+            player.playVideo();
+          }, 1000)
         }
       }
     });
