@@ -1,17 +1,21 @@
 function autoplay() {
   function createPlayer(info) {
-    var player = new YT.Player(info.id, {
+    let player = new YT.Player(info.id, {
       videoId: info.videoId,
       events: {
-        onReady: () => {
-          setTimeout(() => {
-            player.playVideo();
-          }, 1000)
-        }
+        'onReady': onPlayerReady,
+        'onError': onPlayerError
       }
     });
+  }
 
-    return player;
+  function onPlayerReady(event) {
+    event.target.setVolume(100);
+    event.target.playVideo();
+  }
+
+  function onPlayerError(eventError) {
+    console.error(eventError);
   }
 
   function applyPlayer() {
@@ -38,7 +42,7 @@ function autoplay() {
 }
 
 // Required by youtube API
-function onYouTubePlayerAPIReady() {
+function onYouTubeIframeAPIReady() {
   autoplay().applyPlayer();
 }
 
