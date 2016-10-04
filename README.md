@@ -5,7 +5,10 @@
 It’s simple. You can create an element with these data attributes and then magic happens. :D
 
 ```html
-<div data-video-id="YR5ApYxkU-U" id=“ex-01” data-youplay>Loading...</div>
+<div data-video-id="YR5ApYxkU-U" id=“ex-01”
+  data-you-play=".button-play"
+  data-you-pause=".button-pause"
+  data-you-stop=".button-stop">Loading...</div>
 ```
 
 ## Why?

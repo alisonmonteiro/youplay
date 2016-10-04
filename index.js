@@ -7,26 +7,54 @@ function autoplay() {
         'onError': onPlayerError
       }
     });
+
+    return player;
   }
 
   function onPlayerReady(event) {
-    event.target.setVolume(100);
-    event.target.playVideo();
+    console.info('onPlayerReady');
   }
 
   function onPlayerError(eventError) {
-    console.error(eventError);
+    console.error('onPlayerError:', eventError);
   }
 
   function applyPlayer() {
-    const targets = Array.from(document.querySelectorAll('[data-autoplay]'));
+    const targets = Array.from(document.querySelectorAll('[data-you-play]'));
 
     targets.map(item => {
       const id = item.id;
       const videoId = item.getAttribute('data-video-id');
+      const player = createPlayer({ id, videoId });
 
-      createPlayer({ id, videoId })
+      watchClick('play', item, playTarget => {
+        playTarget.onclick = () => {
+          player.playVideo()
+        }
+      });
+
+      watchClick('pause', item, pauseTarget => {
+        pauseTarget.onclick = () => {
+          player.pauseVideo()
+        }
+      });
+
+      watchClick('stop', item, stopTarget => {
+        stopTarget.onclick = () => {
+          player.stopVideo()
+        }
+      });
     })
+  }
+
+  function watchClick(event, item, callback) {
+    let eventTarget = item.getAttribute('data-you-' + event);
+
+    eventTarget = document.querySelector(eventTarget);
+
+    if (callback) {
+      callback(eventTarget);
+    }
   }
 
   function createScriptElement() {
