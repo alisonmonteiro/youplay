@@ -1,11 +1,11 @@
-# AutoPlay
-> A simple way to autoplay youtube videos on mobile devices.
+# YouPlay
+> A simple way to control play and pause of youtube videos on mobile devices.
 
 ## Usage
 It’s simple. You can create an element with these data attributes and then magic happens. :D
 
 ```html
-<div data-video-id="YR5ApYxkU-U" id=“ex-01” data-autoplay>Loading...</div>
+<div data-video-id="YR5ApYxkU-U" id=“ex-01” data-youplay>Loading...</div>
 ```
 
 ## Why?
