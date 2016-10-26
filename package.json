@@ -1,6 +1,6 @@
 {
   "name": "autoplay",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A simple way to autoplay youtube videos on mobile devices.",
   "main": "index.js",
   "scripts": {
