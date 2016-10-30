@@ -3,7 +3,7 @@
 
   if (typeof module === 'object' && typeof module.exports === 'object') {
     // CommonJS-like
-    exports = module.exports = factory();
+    exports = module.exports = factory(root, document);
   } else if (typeof define === 'function' && define.amd) {
     // AMD
     define('autoplay', factory);
