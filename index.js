@@ -36,7 +36,8 @@
     }
 
     function applyPlayer() {
-      const targets = Array.from(document.querySelectorAll('[data-you-play]'));
+      const elements = document.querySelectorAll('[data-you-play]');
+      const targets = Array.prototype.slice.call(elements);
 
       targets.map(item => {
         const id = item.id;
